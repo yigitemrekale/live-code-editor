@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Live Code Editor | HTML, CSS, JS Anlık Önizleme</title>
+  <meta name="description" content="Canlı kod editörü ile HTML, CSS ve JavaScript kodlarını yazın, anında önizleyin. Ücretsiz mini CodePen alternatifi.">
+  <meta name="keywords" content="live code editor, canlı kod editörü, html css js editör, codepen alternatifi, web geliştirme aracı">
+  
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <meta property="og:title" content="Live Code Editor | HTML, CSS, JS Anlık Önizleme">
+  <meta property="og:description" content="Canlı kod editörü ile HTML, CSS ve JavaScript kodlarını yazın, anında önizleyin. Ücretsiz mini CodePen alternatifi.">
+  <meta property="og:image" content="https://senin-site-linkin.netlify.app/assets/logo.png">
+  <meta property="og:url" content="https://senin-site-linkin.netlify.app">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="editor-container">
+    <div class="editor-panel">
+      <h2>Mini Live Code Editor | Yiğit Emre Kalaoğlu</h2>
+
+      <label>HTML</label>
+      <textarea id="html-code" placeholder="HTML kodunu buraya yaz..."></textarea>
+
+      <label>CSS</label>
+      <textarea id="css-code" placeholder="CSS kodunu buraya yaz..."></textarea>
+
+      <label>JavaScript</label>
+      <textarea id="js-code" placeholder="JS kodunu buraya yaz..."></textarea>
+
+      <div class="editor-buttons">
+        <button id="run-btn">💻 Çalıştır</button>
+        <button id="save-btn">💾 Kaydet</button>
+        <button id="load-btn">📂 Yükle</button>
+        <button id="reset-btn">♻️ Sıfırla</button>
+        <button id="export-btn">⬇️ Export HTML</button>
+        <select id="theme-select" aria-label="Tema Seç">
+          <option value="light" selected>🌞 Light Theme</option>
+          <option value="dark">🌙 Dark Theme</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="preview-panel">
+      <iframe id="preview" title="Önizleme"></iframe>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
