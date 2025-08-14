@@ -1,3 +1,4 @@
+// Orijinal elementler (ID'ler korunuyor)
 const preview = document.getElementById("preview");
 const runBtn = document.getElementById("run-btn");
 const saveBtn = document.getElementById("save-btn");
@@ -6,8 +7,10 @@ const resetBtn = document.getElementById("reset-btn");
 const exportBtn = document.getElementById("export-btn");
 const themeSelect = document.getElementById("theme-select");
 
+// CodeMirror'a dönüştürülen editörler
 let htmlEditor, cssEditor, jsEditor;
 
+// Basit debounce (canlı önizlemede performans için)
 function debounce(fn, delay = 200) {
   let t;
   return (...args) => {
@@ -16,6 +19,7 @@ function debounce(fn, delay = 200) {
   };
 }
 
+// Çalıştırma (iframe'e yaz)
 function runCode() {
   const html = htmlEditor.getValue();
   const css = `<style>${cssEditor.getValue()}</style>`;
@@ -23,6 +27,7 @@ function runCode() {
   preview.srcdoc = `<!DOCTYPE html><html><head>${css}</head><body>${html}${js}</body></html>`;
 }
 
+// Kaydet / Yükle / Sıfırla / Export
 function saveCode() {
   localStorage.setItem("htmlCode", htmlEditor.getValue());
   localStorage.setItem("cssCode", cssEditor.getValue());
@@ -65,6 +70,7 @@ function exportCode() {
   toast("HTML indirildi ⬇️");
 }
 
+// Tema değişikliği (body + CodeMirror teması)
 function applyTheme(theme) {
   const isDark = theme === "dark";
   document.body.classList.toggle("dark", isDark);
@@ -73,6 +79,7 @@ function applyTheme(theme) {
   [htmlEditor, cssEditor, jsEditor].forEach(ed => ed.setOption("theme", cmTheme));
 }
 
+// Mini toast (alert yerine yumuşak bildirim)
 function toast(msg) {
   const el = document.createElement("div");
   el.textContent = msg;
@@ -99,7 +106,9 @@ function toast(msg) {
   }, 1400);
 }
 
+// CodeMirror başlat
 function initEditors() {
+  // Not: textarea'lar hâlâ HTML'de var, ama CodeMirror onları kaplar (yapıyı bozmadık)
   htmlEditor = CodeMirror.fromTextArea(document.getElementById("html-code"), {
     mode: "htmlmixed",
     lineNumbers: true,
@@ -134,11 +143,13 @@ function initEditors() {
     theme: "neo"
   });
 
+  // Canlı önizleme (debounced)
   const live = debounce(runCode, 200);
   htmlEditor.on("change", live);
   cssEditor.on("change", live);
   jsEditor.on("change", live);
 
+  // Başlangıç içerik (istersen boş bırakabilirsin)
   if (!localStorage.getItem("htmlCode") &&
       !localStorage.getItem("cssCode") &&
       !localStorage.getItem("jsCode")) {
@@ -157,9 +168,10 @@ button:hover { background:#1d4ed8; }`);
     jsEditor.setValue(`console.log("Hoş geldin!");`);
   }
 
-  runCode(); 
+  runCode(); // ilk render
 }
 
+// Eventler
 runBtn.addEventListener("click", runCode);
 saveBtn.addEventListener("click", saveCode);
 loadBtn.addEventListener("click", loadCode);
@@ -167,13 +179,16 @@ resetBtn.addEventListener("click", resetCode);
 exportBtn.addEventListener("click", exportCode);
 themeSelect.addEventListener("change", () => applyTheme(themeSelect.value));
 
+// Başlat
 window.addEventListener("DOMContentLoaded", () => {
   initEditors();
+  // Son seçilen temayı uygula (yoksa light)
   const initialTheme = localStorage.getItem("uiTheme") || "light";
   themeSelect.value = initialTheme;
   applyTheme(initialTheme);
 });
 
+// Tema tercihini hatırla
 themeSelect.addEventListener("change", () => {
   localStorage.setItem("uiTheme", themeSelect.value);
 });

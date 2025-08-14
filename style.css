@@ -1,3 +1,4 @@
+/* Genel Ayarlar */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -10,6 +11,7 @@ body {
   align-items: center;
 }
 
+/* Kapsayıcı */
 .editor-container {
   display: flex;
   width: 95%;
@@ -21,6 +23,7 @@ body {
   border: 1px solid rgba(2, 6, 23, 0.06);
 }
 
+/* Sol Panel */
 .editor-panel {
   width: 42%;
   min-width: 320px;
@@ -45,12 +48,13 @@ label {
   color: #334155;
 }
 
+/* CodeMirror kapsayıcı (textarea yerine) */
 .CodeMirror {
-  height: 140px;                 
+  height: 140px;                 /* editör boyu */
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   background: #fafafa;
-  padding: 6px 0;               
+  padding: 6px 0;                /* içeride nefes */
   transition: box-shadow .25s ease, border-color .25s ease, transform .08s ease;
 }
 
@@ -61,11 +65,13 @@ label {
 .cm-s-neo.CodeMirror { background: #fafafa; }
 .cm-s-dracula.CodeMirror { background: #1e1e22; }
 
+/* Odak efekti */
 .CodeMirror-focused {
   border-color: #93c5fd;
   box-shadow: 0 0 0 3px rgba(59,130,246,0.25);
 }
 
+/* Butonlar */
 .editor-buttons {
   display: grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
@@ -105,7 +111,7 @@ select {
 }
 select:hover { background: #e2e8f0; }
 
-
+/* Sağ Panel (Preview) */
 .preview-panel {
   width: 58%;
   background: #f8fafc;
@@ -118,6 +124,7 @@ iframe {
   background: #ffffff;
 }
 
+/* Responsive */
 @media (max-width: 1024px) {
   .editor-container { flex-direction: column; height: 100vh; }
   .editor-panel, .preview-panel { width: 100%; }
@@ -125,6 +132,7 @@ iframe {
   .CodeMirror { height: 120px; }
 }
 
+/* Dark Tema */
 body.dark { background: #0b1220; color: #e5e7eb; }
 body.dark .editor-container { background: #0f172a; border-color: rgba(148,163,184,.15); }
 body.dark .editor-panel { background: #0f172a; border-right-color: rgba(148,163,184,.15); }
