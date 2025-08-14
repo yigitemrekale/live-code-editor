@@ -7,31 +7,25 @@
   <meta name="keywords" content="live code editor, canlı kod editörü, html css js editör, codepen alternatifi, web geliştirme aracı">
   <meta name="author" content="Yiğit Emre Kalaoğlu">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo.png">
 
-  <!-- Open Graph & Twitter Kartları -->
   <meta property="og:title" content="Mini Live Code Editor | HTML, CSS, JS Anlık Önizleme">
   <meta property="og:description" content="Canlı kod editörü ile HTML, CSS ve JavaScript kodlarını yazın, anında önizleyin. Ücretsiz mini CodePen alternatifi.">
   <meta property="og:image" content="https://livecodeeditory.netlify.app/assets/logo.png">
   <meta property="og:url" content="https://livecodeeditory.netlify.app">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Stil -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- CodeMirror (highlight & editör) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
-  <!-- Tema: light = "neo", dark = "dracula" -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/neo.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
 </head>
 
 <body>
   <div class="editor-container">
-    <!-- Editor Panel -->
     <div class="editor-panel">
-      <h2>Mini Live Code Editor</h2>
+      <h2>Mini Live Code Editor | Yiğit Emre Kalaoğlu</h2>
 
       <label>HTML</label>
       <textarea id="html-code" placeholder="HTML kodunu buraya yaz..."></textarea>
@@ -55,13 +49,11 @@
       </div>
     </div>
 
-    <!-- Preview Panel -->
     <div class="preview-panel">
       <iframe id="preview" title="Önizleme"></iframe>
     </div>
   </div>
 
-  <!-- CodeMirror JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
